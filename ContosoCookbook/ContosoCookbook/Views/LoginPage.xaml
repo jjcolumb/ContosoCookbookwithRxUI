@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="ContosoCookbook.Views.LoginPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="3*" />
+            <RowDefinition Height="1*" />
+        </Grid.RowDefinitions>
+        <Grid.Resources>
+            <ResourceDictionary>
+                <Style TargetType="Entry">
+                    <Setter Property="Margin" Value="40,10" />
+                </Style>
+            </ResourceDictionary>
+        </Grid.Resources>
+
+        <StackLayout Grid.Row="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+            <Image Source="https://d33wubrfki0l68.cloudfront.net/1b88ade41838e8036700f92c2fb945455fb45fb3/97288/assets/img/logo.png"/>
+            <ActivityIndicator HorizontalOptions="Center"    IsRunning="{Binding IsBusy}" VerticalOptions="Center" />
+            <Entry Text="{Binding UserName}" Placeholder="Enter a random username" VerticalOptions="EndAndExpand" />
+            <Entry Text="{Binding Password}" IsPassword="true" Placeholder="The Super Secret Pwd is:  1234" VerticalOptions="StartAndExpand" />
+            <Button Text="Submit" Command="{Binding LoginCommand}" />
+        </StackLayout>
+    </Grid>
+</ContentPage>
